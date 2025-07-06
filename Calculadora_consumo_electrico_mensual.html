@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Consumo Eléctrico Mensual</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 650px;
+      margin: 40px auto;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .resaltado {
+      font-weight: bold;
+    }
+    .seccion {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    /**
+     * Calcula y muestra el consumo eléctrico mensual y el ahorro.
+     * @param {number} consumoDiario - Consumo diario en kWh.
+     */
+    function calcularConsumo(consumoDiario) {
+      const DIAS_DEL_MES = 30;
+      const TARIFA_KWH = 650; // Guaraníes por kWh
+
+      // Cálculos principales
+      const consumoMensual = consumoDiario * DIAS_DEL_MES;
+      const montoPagar = consumoMensual * TARIFA_KWH;
+
+      // Con reducción del 10 %
+      const consumoMensualReducido = consumoMensual * 0.9;
+      const montoPagarReducido = consumoMensualReducido * TARIFA_KWH;
+      const ahorro = montoPagar - montoPagarReducido;
+
+      // Salida
+      document.write('<h1>Calculadora de Consumo Eléctrico Mensual</h1>');
+      document.write(`<div class="seccion">
+        <p>Consumo diario: <span class="resaltado">${consumoDiario.toFixed(2)} kWh</span></p>
+        <p>Consumo total del mes: <span class="resaltado">${consumoMensual.toFixed(2)} kWh</span></p>
+        <p>Considerando una tarifa de ₲${TARIFA_KWH.toLocaleString('es-PY')} por kWh, el monto a pagar es de: <span class="resaltado">₲${montoPagar.toLocaleString('es-PY')}</span></p>
+      </div>`);
+
+      document.write(`<div class="seccion">
+        <p><strong>Ahorro si reduce 10 % el consumo diario</strong></p>
+        <p>Consumo mensual reducido: <span class="resaltado">${consumoMensualReducido.toFixed(2)} kWh</span></p>
+        <p>Monto a pagar con reducción: <span class="resaltado">₲${montoPagarReducido.toLocaleString('es-PY')}</span></p>
+        <p>Ahorro total: <span class="resaltado">₲${ahorro.toLocaleString('es-PY')}</span></p>
+      </div>`);
+    }
+
+    // Entrada del usuario
+    const consumoDiario = parseFloat(prompt('Ingrese su consumo diario de electricidad en kWh:'));
+
+    if (isNaN(consumoDiario) || consumoDiario < 0) {
+      document.write('<p>Por favor, ingrese un número válido.</p>');
+    } else {
+      calcularConsumo(consumoDiario);
+    }
+  </script>
+</body>
+</html>
