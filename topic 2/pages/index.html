@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora de Costo de Impresión</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../scripts/calculator.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+  <div class="flex-1 max-w-3xl w-full mx-auto p-6">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold text-center text-blue-900">Calcular el costo de impresión</h1>
+    </header>
+
+    <main>
+      <section class="bg-white shadow rounded-lg p-4 mb-6">
+        <h2 class="text-xl font-semibold mb-2">Información</h2>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Costo: <span class="font-medium">₲200</span> por página</li>
+          <li>Promo: Impresión doble carilla a tan solo <span class="font-medium">₲200</span></li>
+        </ul>
+      </section>
+
+      <form id="form" class="bg-white shadow rounded-lg p-4 mb-6 space-y-4">
+        <label class="block text-gray-700 font-medium">
+          Ingresar número de páginas de cada apunte (separados por coma):
+          <input id="num-to-print" type="text" placeholder="Ej: 10, 25, 13, 8, 20" class="w-full mt-2 p-2 border border-gray-300 rounded focus:ring focus:outline-none" />
+        </label>
+        <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Calcular
+        </button>
+      </form>
+
+      <div id="summary-container"></div>
+    </main>
+  </div>
+
+  <footer class="bg-blue-900 text-gray-200 p-6 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="mb-2">Trabajo Grupal, 3 personas</p>
+      <ul class="flex flex-wrap justify-center gap-4">
+        <li>Maximiliano Orue</li>
+        <li>Cristian Rivas</li>
+        <li>Guillermo Sanchez</li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
