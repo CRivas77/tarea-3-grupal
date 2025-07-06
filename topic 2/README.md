@@ -25,7 +25,6 @@ Se podria utilizar una libreria como React.js, lo cual quita mucha abstraccion a
 
 ## Demo
 
-<video controls width="600">
-  <source src="topic 2/assets/demo.mov" type="video/mp4">
-  Tu navegador no soporta el video HTML5.
-</video>
+https://github.com/user-attachments/assets/32e795a5-ee11-441f-b208-98cca68f0365
+
+
