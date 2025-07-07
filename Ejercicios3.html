@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Viáticos para Docentes</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        line-height: 1.6;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .resaltado {
+        font-weight: bold;
+    }
+
+    .seccion {
+        flex: 1;
+        margin: 0.5rem;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background-color: #eef7ff;
+    }
+
+    .enunciado {
+        background-color: #eef7ff;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .enunciado h2 {
+        text-align: center;
+        margin-top: 0;
+        color: #333;
+    }
+
+    .fila {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap; 
+    }
+  </style>
+</head>
+<body>
+  <script>
+    //Titulo y enunciado del problema
+    document.write('<h1>Calculadora de Viáticos para Docentes</h1>');
+    document.write(`<div class="enunciado">
+        <h2>Enunciado</h2>
+        <p>
+            Un docente viaja a una sede 3 veces por semana. Cobra ₲20.000 por día de traslado.
+            Si va durante 4 semanas, ¿cuánto cobra en total?<br>
+            Extra: ¿Cuánto cobraría si se aumentara el viático un 15% en la última semana?
+        </p>
+        </div>`);
+
+    function calcularViaticos(viajesPorSemana, semanas, viaticoDiario) {
+        const TOTAL_SEMANAS = semanas;
+
+        // Calculo sin aumento
+        const totalDias = viajesPorSemana * TOTAL_SEMANAS;
+        const totalNormal = totalDias * viaticoDiario;
+
+        //Calculo con aumento del 15 % en la última semana
+        const semanasSinAumento = TOTAL_SEMANAS - 1;
+        const diasSinAumento = semanasSinAumento * viajesPorSemana;
+        const diasConAumento = viajesPorSemana;
+        const viaticoAumentado = viaticoDiario * 1.15;
+
+        const totalConAumento = (diasSinAumento * viaticoDiario) + (diasConAumento * viaticoAumentado);
+        const diferencia = totalConAumento - totalNormal;
+
+        // Mostrar  uno al lado del otro
+        document.write('<div class="fila">');
+
+            //Tabla sin aumento
+            document.write(`<div class="seccion">
+                <p><strong>Total</strong></p>
+                <p>Viajes por semana: <span class="resaltado">${viajesPorSemana}</span></p>
+                <p>Semanas trabajadas: <span class="resaltado">${TOTAL_SEMANAS}</span></p>
+                <p>Viático diario: <span class="resaltado">₲${viaticoDiario.toLocaleString('es-PY')}</span></p>
+                <p>Total sin aumento: <span class="resaltado">₲${totalNormal.toLocaleString('es-PY')}</span></p>
+            </div>`);
+
+            //Tabla con aumento
+            document.write(`<div class="seccion">
+                <p><strong>Total con aumento del 15% en la última semana</strong></p>
+                <p>Viático diario aumentado: <span class="resaltado">₲${viaticoAumentado.toLocaleString('es-PY')}</span></p>
+                <p>Total con aumento: <span class="resaltado">₲${totalConAumento.toLocaleString('es-PY')}</span></p>
+                
+            </div>`);
+
+        document.write('</div>'); // Cierre de fila
+    }
+
+    // Datos segun el enunciado
+    const viajesPorSemana = 3;
+    const semanas = 4;
+    const viaticoDiario = 20000;
+
+    calcularViaticos(viajesPorSemana, semanas, viaticoDiario);
+  </script>
+</body>
+</html>
